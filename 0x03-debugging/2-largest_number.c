@@ -22,7 +22,7 @@ else if (b >= a && b >= c)
 }
 else
 {
-	largest = b;
+	largest = c;
 }
 
 return (largest);
