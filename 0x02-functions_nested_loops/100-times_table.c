@@ -1,47 +1,47 @@
 #include "main.h"
-
 /**
- * * print_times_table - Print the n times table
- *
- * @n: number times table table (0 < n<= 15)
- *
- * Return: no return
+ * print_times_table - prints the times table for n.
+ * @n: The multiplication table requested.
+ * Return: Nothing.
  */
-
 void print_times_table(int n)
 {
-	int a, b, op;
+	int i, j, res;
 
-	if (n >= 0 && n <= 15)
+	if (!(n > 15 || n < 0))
 	{
-	for (a = 0; a <= n; a++)
-	{
-	_putchar(48);
-	for (b = 1; b <= n; b++)
-	{
-		op = a * b;
-		_putchar(44);
-		_putchar(32);
-		if (op <= 9)
+		for (i = 0; i <= n; i++)
 		{
-		_putchar(32);
-		_putchar(32);
-		_putchar(op + 48);
+			for (j = 0; j <= n; j++)
+			{
+				res = (i * j);
+				if (j != 0)
+				{
+					_putchar(',');
+					_putchar(' ');
+				}
+				if (res < 10 && j != 0)
+				{
+					_putchar(' ');
+					_putchar(' ');
+					_putchar((res % 10) + '0');
+				}
+				else if (res >= 10 && res < 100)
+				{
+					_putchar(' ');
+					_putchar((res / 10) + '0');
+					_putchar((res % 10) + '0');
+				}
+				else if (res >= 100 && j != 0)
+				{
+					_putchar((res / 100) + '0');
+					_putchar((res / 10) % 10 + '0');
+					_putchar((res % 10) + '0');
+				}
+				else
+					_putchar((res % 10) + '0');
+			}
+			_putchar('\n');
 		}
-		else if (op <= 99)
-		{
-		_putchar(32);
-		_putchar((op / 10) + 48);
-		_putchar((op / 10) + 48);
-		}
-		else
-		{
-		_putchar(((op / 100) % 10) + 48);
-		_putchar(((op / 10) % 10) + 48);
-		_putchar(((op % 10) + 48);
-		}
-	}
-	_putchar('\n');
-	}
 	}
 }
